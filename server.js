@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const notes = require('../Develop/db/db.json')
+const notes = require('./Develop/db/db.json')
 
 
 // Routes
