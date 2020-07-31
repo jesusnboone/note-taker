@@ -28,31 +28,17 @@ app.get('/api/notes', (req, res) => {
   return res.json(notes);
 });
 
-app.get('/api/notes/:character', (req, res) => {
-  const chosen = req.params.character;
-
-  console.log(chosen);
-
-  for (let i = 0; i < notes.length; i++) {
-    if (chosen === notes[i].routeName) {
-      return res.json(notes[i]);
-    }
-  }
-
-  return res.json(false);
-});
-
 app.post('/api/notes', (req, res) => {
-  const newCharacter = req.body;
+  const newNote = req.body;
 
   // BONUS: Use a RegEx Pattern to remove spaces from newCharacter
-  newCharacter.routeName = newCharacter.name.replace(/\s+/g, '').toLowerCase();
+  newNote.title = newNote.title.replace(/\s+/g, '').toLowerCase();
 
-  console.log(newCharacter);
+  console.log(newNote);
 
-  notes.push(newCharacter);
+  notes.push(newNote);
 
-  res.json(newCharacter);
+  res.json(newNote);
 });
 
 // Listener
