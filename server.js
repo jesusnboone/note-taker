@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 3001;
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public'));
 
 const notes = require('./Develop/db/db.json')
 
@@ -17,7 +16,9 @@ const notes = require('./Develop/db/db.json')
 // Routes
 // =============================================================
 
-app.get('*', (req, res) => {
+
+
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
 });
 
@@ -27,6 +28,10 @@ app.get('/notes', (req, res) => {
 
 app.get('/api/notes', (req, res) => {
   return res.json(notes);
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
 });
 
 app.post('/api/notes', (req, res) => {
