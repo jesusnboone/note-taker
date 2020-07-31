@@ -17,12 +17,12 @@ const notes = require('./Develop/db/db.json')
 // Routes
 // =============================================================
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/develop/public/index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
 });
 
 app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, '/develop/public/notes.html'));
+  res.sendFile(path.join(__dirname, '/Develop/public/notes.html'));
 });
 
 app.get('/api/notes', (req, res) => {
