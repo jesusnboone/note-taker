@@ -35,8 +35,6 @@ app.get('*', (req, res) => {
 
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
-
-  // BONUS: Use a RegEx Pattern to remove spaces from newCharacter
   newNote.title = newNote.title
   newNote.text = newNote.text
   newNote.id = newNote.title
